@@ -100,11 +100,13 @@ const Plan = () => {
               {results.length > 1 && <TableHeader>Selected</TableHeader>}
               <TableHeader>Bounties</TableHeader>
               {results.length > 1 && <TableHeader>Experience</TableHeader>}
+              {results.length > 1 && <TableHeader>XP/Hour</TableHeader>}
               <TableHeader>Time</TableHeader>
             </TableRow>
           </TableHead>
           <TableBody>
             {results.map((result, index) => {
+              const xpPerHour = Math.round((result.experience / (result.distance / 3600)));
               return (
                 <TableRow
                   key={index}
@@ -133,6 +135,11 @@ const Plan = () => {
                   {results.length > 1 && (
                     <TableCell>
                       <Text>{result.experience.toLocaleString()}</Text>
+                    </TableCell>
+                  )}
+                  {results.length > 1 && (
+                    <TableCell>
+                      <Text>{xpPerHour.toLocaleString()}</Text>
                     </TableCell>
                   )}
                   <TableCell>
