@@ -76,7 +76,7 @@ const preprocessBitmap = async (bitmap) => {
   return createImageBitmap(canvas);
 };
 
-const OCR = ({ open, setOpen, imageUrl, success, error }) => {
+const OCR = ({ open, setOpen, onResults, imageUrl, success, error }) => {
   const { ocr, progress } = useOCR();
 
   if (!open) {
@@ -104,7 +104,13 @@ const OCR = ({ open, setOpen, imageUrl, success, error }) => {
       stream.getTracks().forEach((track) => track.stop());
 
       const processedBitmap = await preprocessBitmap(bitmap);
-      ocr(processedBitmap);
+      const results = await ocr(processedBitmap);
+      console.log("OCR results before callback:", results);
+      if (results) {
+        onResults(results);
+        console.log("Attempting to close OCR dialog");
+        setOpen(false);
+      }
     } catch (err) {
       console.error("Error capturing screen:", err);
     }

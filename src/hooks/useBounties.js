@@ -124,6 +124,7 @@ const useBounties = (key) => {
     toggleBountyBoard,
     resetBounties,
     resetBountyBoard,
+    setCount,
   };
 };
 

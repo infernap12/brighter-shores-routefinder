@@ -40,7 +40,14 @@ const Selection = () => {
     bountyBoardCount,
     resetBounties,
     resetBountyBoard,
+    setCount,
   } = useBounties("bountiesV3");
+
+
+  console.log("Available functions:", {
+    setCount: typeof setCount,
+    toggleBountyBoard: typeof toggleBountyBoard
+  });
 
   const filteredBounties = useMemo(() => {
     if (!filter) {
@@ -51,6 +58,28 @@ const Selection = () => {
       return bounty.name.toLowerCase().includes(filter.toLowerCase());
     });
   }, [filter, bounties]);
+
+  const handleOCRResults = (results) => {
+    console.log("handleOCRResults received:", results);
+    // Reset existing selections
+    resetBounties();
+    resetBountyBoard()
+
+    // Update bounty counts and bounty board selections
+    Object.entries(results.bounties).forEach(([name, count]) => {
+      const key = name.toUpperCase().replaceAll(" ", "_");
+      console.log(`Setting bounty count for ${key} to ${count}`);
+      setCount(key, count);
+    })
+
+    Object.entries(results.availableBounties).forEach(([name, count]) => {
+      const key = name.toUpperCase().replaceAll(" ", "_");
+      if (count > 0) {
+        console.log(`Setting bounty board for ${key}`);
+        toggleBountyBoard(key, true);
+      }
+    })
+  }
 
   return (
     <Page bounded>
@@ -82,7 +111,7 @@ const Selection = () => {
             <Badge color="green">New</Badge>
             Detect with OCR
           </Button>
-          <OCR open={ocr} setOpen={setOcr} />
+          <OCR open={ocr} setOpen={setOcr} onResults={handleOCRResults} />
         </div>
 
         <Button color="blue" href="/route">

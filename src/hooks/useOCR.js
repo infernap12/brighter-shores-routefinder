@@ -10,7 +10,7 @@ const useOCR = () => {
     console.log(progress);
   }, [progress]);
 
-  const ocr = useCallback((imageBitmap) => {
+  const ocr = useCallback(async (imageBitmap) => {
     const loadClient = async () => {
       const c = await createOCREngine();
 
@@ -167,10 +167,11 @@ const useOCR = () => {
       // }
 
       console.log(result);
+      return result;
     };
 
     setProgress(0);
-    run();
+    return await run();
   }, []);
 
   return {
