@@ -251,6 +251,84 @@ export const bounties = {
     seller: markets.FRANCESCAS_FRUIT_STALL,
     buyer: markets.TEXTILES_STALL,
   },
+  PRECISE_POCKET_WATCH: {
+    level: 233,
+    name: "Precise Pocket Watch",
+    seller: markets.SNILCHS_WATCHES,
+    buyer: markets.GREENGROCERS,
+  },
+  SILK: {
+    level: 255,
+    name: "Silk",
+    seller: markets.TEXTILES_STALL,
+    buyer: markets.HERMARS_HOMEWARE,
+  },
+  OLD_RARG: {
+    level: 272,
+    name: "Old Rarg",
+    seller: markets.CHEESE_SHOP,
+    buyer: markets.CHEF,
+  },
+  FARGUST_WINE: {
+    level: 300,
+    name: "Fargust Wine",
+    seller: markets.JENNALERS_WINES,
+    buyer: markets.BERTS_GALLERY,
+  },
+  STRIPED_VASE: {
+    level: 317,
+    name: "Striped Vase",
+    seller: markets.VASE_STALL,
+    buyer: markets.BERTS_GALLERY,
+  },
+  TEA_LIGHTS: {
+    level: 339,
+    name: "Tea Lights",
+    seller: markets.CANDICES_CANDLES,
+    buyer: markets.FORTUNEHOLD_FARM,
+  },
+  UNICORN_HAIR: {
+    level: 356,
+    name: "Unicorn Hair",
+    seller: markets.VICTOR_T_CYCLOPS,
+    buyer: markets.SNILCHS_WATCHES,
+  },
+  PORTRAIT_PAINTING: {
+    level: 384,
+    name: "Portrait Painting",
+    seller: markets.BERTS_GALLERY,
+    buyer: markets.CANDICES_CANDLES,
+  },
+  PENDULUM_CLOCK: {
+    level: 400,
+    name: "Pendulum Clock",
+    seller: markets.CLOCK_STALL,
+    buyer: markets.FRANCESCAS_FRUIT_STALL,
+  },
+  MONOCLE: {
+    level: 423,
+    name: "Monocle",
+    seller: markets.MONOCLE_MARKET,
+    buyer: markets.VICTOR_T_CYCLOPS,
+  },
+  TOPHILL_WINE: {
+    level: 439,
+    name: "Tophill Wine",
+    seller: markets.TOMMY_SHOES_WINES,
+    buyer: markets.GREENGROCERS,
+  },
+  ANTIQUE_BOOK: {
+    level: 467,
+    name: "Antique Book",
+    seller: markets.BOGGS_ANTIQUES,
+    buyer: markets.BUTCHERS_STALL,
+  },
+  TRUFFLES: {
+    level: 484,
+    name: "Truffles",
+    seller: markets.JANESSAS_DELICACIES,
+    buyer: markets.MONOCLE_MARKET,
+  },
 };
 
 /**
